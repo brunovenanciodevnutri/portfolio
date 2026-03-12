@@ -12,14 +12,13 @@ declare module "vue-router" {
 }
 
 const routes: RouteRecordRaw[] = [
-  { path: "/", redirect: "/home" },
   {
-    path: "/home",
+    path: "/",
     name: "home",
     component: () => import("../views/HomeView.vue"),
     meta: { 
-      title: "Bruno Venâncio | Software Developer Full Stack",
-      description: "Portfólio profissional de Bruno Venâncio, desenvolvedor Full Stack especializado em Vue.js, React, Node.js, C# e .NET. Confira meus projetos e entre em contato."
+      title: "Bruno Venâncio | Software Developer Front-end",
+      description: "Portfólio profissional de Bruno Venâncio, desenvolvedor Front-end especializado em Vue.js e TypeScript. Confira meus projetos e entre em contato."
     },
   },
 ];
@@ -42,8 +41,8 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const defaultTitle = "Bruno Venâncio | Software Developer";
-  const defaultDescription = "Portfólio profissional de desenvolvedor Full Stack";
+  const defaultTitle = "Bruno Venâncio | Software Developer Front-end";
+  const defaultDescription = "Portfólio profissional de desenvolvedor Front-end especializado em Vue.js e TypeScript";
   
   document.title = (to.meta.title as string) || defaultTitle;
   
