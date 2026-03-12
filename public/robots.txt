@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.portfoliobrunovenancio.com.br/sitemap.xml
+Sitemap: https://www.brunovenanciodev.com/sitemap.xml
