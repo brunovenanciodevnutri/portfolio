@@ -1,7 +1,7 @@
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = import.meta.env.PROD;
 
 const config = {
-  urlBase: isProduction ? "https://www.portfoliobrunovenancio.com.br" : "http://localhost:3000",
+  urlBase: isProduction ? "portfoliobrunovenanciodev.vercel.app" : "http://localhost:3000",
 };
 
 export default config;
