@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import { Toaster } from "vue-sonner";
+import { defineAsyncComponent } from "vue";
 import Layout from "@/components/layout/Layout.vue";
-import "vue-sonner/style.css";
 
+const Toaster = defineAsyncComponent(async () => {
+  const { Toaster } = await import("vue-sonner");
+  await import("vue-sonner/style.css");
+  return Toaster;
+});
 </script>
 
 <template>
-  <Toaster position="top-right" richColors />
+  <Suspense>
+    <Toaster position="top-right" richColors />
+  </Suspense>
   <Layout />
 </template>

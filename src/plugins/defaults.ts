@@ -57,7 +57,6 @@ export default {
     variant: "outlined",
   },
   VDateInput: {
-    prependInnerIcon: "mdi-calendar",
     placeholder: "dd/mm/yyyy",
     variant: "outlined",
     prependIcon: "",
