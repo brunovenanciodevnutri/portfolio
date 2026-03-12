@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { Mail, Linkedin, Github, ArrowRight, Upload } from "lucide-vue-next";
-import profileImage from '@/assets/images/selfie_1_black.png';
+import profileImage from '@/assets/images/selfie_1_black_compress.png';
 
 const displayedText = ref("");
 const showCursor = ref(true);
