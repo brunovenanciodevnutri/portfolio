@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Menu, X, Code2 } from 'lucide-vue-next';
+import { Menu, X } from 'lucide-vue-next';
 
 const mobileMenuOpen = ref(false);
 

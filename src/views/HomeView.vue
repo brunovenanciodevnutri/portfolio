@@ -8,24 +8,6 @@ const showCursor = ref(true);
 const fullText = "Bruno Venâncio\nFront-End Developer";
 const typingSpeed = 80;
 
-onMounted(() => {
-  let currentIndex = 0;
-  
-  const typeCharacter = () => {
-    if (currentIndex < fullText.length) {
-      displayedText.value += fullText[currentIndex];
-      currentIndex++;
-      setTimeout(typeCharacter, typingSpeed);
-    } else {
-      setTimeout(() => {
-        showCursor.value = false;
-      }, 500);
-    }
-  };
-  
-  typeCharacter();
-});
-
 const skills = ref([
   { name: "Vue.js", category: "Frontend" },
   { name: "TypeScript", category: "Frontend" },
@@ -112,6 +94,24 @@ const scrollToSection = (sectionId: string) => {
     element.scrollIntoView({ behavior: "smooth" });
   }
 };
+
+onMounted(() => {
+  let currentIndex = 0;
+  
+  const typeCharacter = () => {
+    if (currentIndex < fullText.length) {
+      displayedText.value += fullText[currentIndex];
+      currentIndex++;
+      setTimeout(typeCharacter, typingSpeed);
+    } else {
+      setTimeout(() => {
+        showCursor.value = false;
+      }, 500);
+    }
+  };
+  
+  typeCharacter();
+});
 </script>
 
 <template>
