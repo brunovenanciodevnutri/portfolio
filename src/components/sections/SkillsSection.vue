@@ -9,6 +9,7 @@ const skills = ref([
   { name: "TailwindCSS", category: "Frontend" },
   { name: "HTML", category: "Frontend" },
   { name: "CSS", category: "Frontend" },
+  { name: "Axios", category: "Frontend" },
   { name: "Vitest", category: "Testing" },
   { name: "Testing Library", category: "Testing" },
   { name: "Git", category: "Tools" },
