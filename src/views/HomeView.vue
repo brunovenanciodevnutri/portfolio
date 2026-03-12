@@ -1,0 +1,532 @@
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import { Mail, Linkedin, Github, ArrowRight, Upload } from "lucide-vue-next";
+import profileImage from '@/assets/images/selfie_1_black.png';
+
+const displayedText = ref("");
+const showCursor = ref(true);
+const fullText = "Bruno Venâncio\nFront-End Developer";
+const typingSpeed = 80;
+
+onMounted(() => {
+  let currentIndex = 0;
+  
+  const typeCharacter = () => {
+    if (currentIndex < fullText.length) {
+      displayedText.value += fullText[currentIndex];
+      currentIndex++;
+      setTimeout(typeCharacter, typingSpeed);
+    } else {
+      setTimeout(() => {
+        showCursor.value = false;
+      }, 500);
+    }
+  };
+  
+  typeCharacter();
+});
+
+const skills = ref([
+  { name: "Vue.js", category: "Frontend" },
+  { name: "TypeScript", category: "Frontend" },
+  { name: "JavaScript", category: "Frontend" },
+  { name: "React", category: "Frontend" },
+  { name: "TailwindCSS", category: "Frontend" },
+  { name: "HTML", category: "Frontend" },
+  { name: "CSS", category: "Frontend" },
+  { name: "Vitest", category: "Testing" },
+  { name: "Testing Library", category: "Testing" },
+  { name: "Git", category: "Tools" },
+  { name: "GitHub", category: "Tools" },
+  { name: "NPM", category: "Tools" },
+  { name: "Postman", category: "Tools" },
+]);
+
+const experiences = ref([
+  {
+    role: "Desenvolvedor de Software",
+    company: "del.tech",
+    period: "Outubro 2025 - Atualmente",
+    description:
+      "Desenvolvimento e manutenção de aplicações web em ambiente financeiro (fintech). Responsável pelo desenvolvimento completo do front-end de sistemas financeiros, com destaque para o sistema de risco sacado (antecipação de recebíveis), reconhecido pela organização, clareza visual e qualidade da interface. Contribuição ativa na padronização de componentes, organização do código e automatização de testes unitários utilizando Vitest e Testing Library.",
+    technologies: [
+      "Vue.js",
+      "JavaScript",
+      "TypeScript",
+      "Vitest",
+      "Testing Library",
+      "TailwindCSS",
+      "Vuetify",
+    ],
+  },
+  {
+    role: "Estagiário de Desenvolvimento Web",
+    company: "del.tech",
+    period: "Maio 2025 - Outubro 2025",
+    description:
+      "Desenvolvimento e contribuição na manutenção de sistemas financeiros críticos, realizando ajustes em fluxos existentes e apoio na resolução de problemas em produção. Atuação na criação de landing pages para novos produtos da empresa e desenvolvimento do front-end de sistemas internos de autoatendimento (self checkout), integrando as interfaces às APIs backend.",
+    technologies: [
+      "Vue.js",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "TailwindCSS",
+      "Vuetify",
+    ],
+  },
+]);
+
+const projects = ref([
+  {
+    title: "MiniFast",
+    description:
+      "Sistema de cardápio online para foodparks, onde é possível reservar/comprar pedidos e retirar no estabelecimento. Plataforma tipo ifood sem entregas, facilitando a compra e dando mais visibilidade aos estabelecimentos e às promoções.",
+    technologies: ["Vue.js", "TypeScript", "TailwindCSS", "Vuetify"],
+    link: "#",
+  },
+  {
+    title: "Sistema de Risco Sacado",
+    description:
+      "Responsável e desenvolvedor líder do front-end deste sistema financeiro para antecipação de recebíveis na del.tech. Projeto reconhecido internamente pela organização, clareza visual e qualidade da interface.",
+    technologies: [
+      "Vue.js",
+      "TypeScript",
+      "Vitest",
+      "Testing Library",
+      "Vuetify",
+    ],
+    link: "#",
+  },
+  {
+    title: "Landing Pages & Self Checkout",
+    description:
+      "Desenvolvimento de landing pages para novos produtos e sistemas internos de autoatendimento com integração às APIs backend.",
+    technologies: ["JavaScript", "HTML5", "TailwindCSS"],
+    link: "#",
+  },
+]);
+
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+</script>
+
+<template>
+  <div class="min-h-screen bg-black text-white">
+    <section
+      id="home"
+      class="relative py-12 lg:py-24 pt-20 md:pt-28 flex items-center justify-center overflow-hidden"
+    >
+      <div
+        class="absolute top-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-1/4 right-20 w-80 h-80 bg-blue-700/8 rounded-full blur-3xl pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-32 left-1/4 w-72 h-72 bg-blue-400/6 rounded-full blur-3xl pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/3 w-64 h-64 bg-blue-800/7 rounded-full blur-3xl pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-20 right-16 w-56 h-56 bg-blue-300/5 rounded-full blur-3xl pointer-events-none"
+      ></div>
+
+      <div
+        class="fixed right-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-700/0 via-blue-700 to-blue-700/0"
+      ></div>
+
+      <div class="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-8 lg:px-12 animate-fade-in-up">
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <div class="order-2 lg:order-1">
+            <h1
+              class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight max-w-full"
+            >
+              <span v-if="displayedText.includes('\n')">
+                {{ displayedText.split('\n')[0] }}<br />
+                <span class="gradient-text lg:whitespace-nowrap text-4xl sm:text-6xl lg:text-7xl">
+                  {{ displayedText.split('\n')[1] }}<span v-if="showCursor" class="typing-cursor">|</span>
+                </span>
+              </span>
+              <span v-else class="lg:whitespace-nowrap">
+                {{ displayedText }}<span v-if="showCursor" class="typing-cursor">|</span>
+              </span>
+            </h1>
+
+            <p
+              class="text-lg sm:text-xl text-gray-400 mb-12 max-w-2xl leading-relaxed"
+            >
+          Desenvolvedor de Software com atuação em aplicações web utilizadas em
+          ambiente financeiro. Forte atuação em frontend com
+          <strong class="text-white">Vue.js</strong>,
+          <strong class="text-white">JavaScript</strong> e
+          <strong class="text-white">TypeScript</strong>, com experiência no
+              desenvolvimento de dashboards, backoffices e sistemas críticos.
+            </p>
+
+            <div class="flex flex-wrap gap-4 mb-16">
+          <VBtn
+            size="large"
+            color="blue"
+            variant="flat"
+            class="flex items-center justify-center gap-3 px-8 py-6 bg-blue-500/5 border-2 border-blue-500/40 rounded-lg text-white text-lg font-semibold shadow-[0_10px_30px_rgba(59,130,246,0.3)] transition-all hover:-translate-y-1 hover:bg-blue-500/10 hover:border-blue-500/50 hover:shadow-[0_15px_40px_rgba(59,130,246,0.4)] disabled:opacity-70 disabled:cursor-not-allowed"
+            href="/CURRÍCULO SOFTWARE DEVELOPER _ BRUNO VENÂNCIO SANTOS DE JESUS.pdf"
+            download="Bruno_Venancio_CV.pdf"
+            target="_blank"
+          >
+            Download CV
+            <Upload class="w-5 h-5 ml-2" />
+          </VBtn>
+
+          <VBtn
+            size="large"
+            variant="outlined"
+            color="white"
+            class="px-8 py-6 text-base font-medium flex items-center"
+            @click="scrollToSection('contact')"
+          >
+            Entrar em Contato
+          </VBtn>
+            </div>
+
+            <div class="flex items-center gap-6">
+          <a
+            href="https://linkedin.com/in/brunovenanciodevnutri"
+            target="_blank"
+            class="text-gray-500 hover:text-white transition-colors"
+            aria-label="LinkedIn"
+          >
+            <Linkedin class="w-6 h-6" />
+          </a>
+          <a
+            href="https://github.com/brunovenanciodevnutri"
+            target="_blank"
+            class="text-gray-500 hover:text-white transition-colors"
+            aria-label="GitHub"
+          >
+            <Github class="w-6 h-6" />
+          </a>
+          <a
+            href="mailto:brunovenanciodevnutri@gmail.com"
+            class="text-gray-500 hover:text-white transition-colors"
+            aria-label="Email"
+          >
+            <Mail class="w-6 h-6" />
+          </a>
+            </div>
+          </div>
+
+          <div class="flex justify-center -mt-10 md:mt-0 lg:justify-end order-1 lg:order-2">
+            <div class="relative group">
+              <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full blur opacity-75 transition duration-300"></div>
+              <div class="relative">
+                <img
+                  :src="profileImage"
+                  alt="Bruno Venâncio"
+                  class="relative w-40 h-40 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-blue-500/40 shadow-[0_10px_40px_rgba(59,130,246,0.4)] transition-all"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="about"
+      class="relative py-16 lg:py-32 px-4 sm:px-8 lg:px-12 border-t border-white/5 overflow-hidden"
+    >
+      <div
+        class="absolute top-40 right-10 w-80 h-80 bg-blue-500/6 rounded-full blur-3xl pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-20 left-20 w-72 h-72 bg-blue-700/5 rounded-full blur-3xl pointer-events-none"
+      ></div>
+
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          About <span class="gradient-text">me</span>
+        </h2>
+
+        <div
+          class="h-1 w-20 bg-gradient-to-r from-blue-700 to-blue-600 mb-12"
+        ></div>
+
+        <div class="grid md:grid-cols-2 gap-16">
+          <div class="space-y-6">
+            <p class="text-lg text-gray-400 leading-relaxed">
+              Desenvolvedor de Software com atuação em aplicações web utilizadas
+              em ambiente financeiro, trabalhando em sistemas internos e
+              produtos voltados ao cliente final.
+            </p>
+            <p class="text-lg text-gray-400 leading-relaxed">
+              Forte experiência em frontend com Vue.js, JavaScript e TypeScript,
+              no desenvolvimento de dashboards, backoffices e sistemas
+              financeiros críticos. Experiência em integração com APIs REST,
+              desenvolvimento de interfaces responsivas e arquitetura baseada em
+              componentes.
+            </p>
+
+            <div class="pt-6 space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="w-2 h-2 bg-blue-700 rounded-full"></div>
+                <span class="text-white font-medium"
+                  >Desenvolvimento Frontend</span
+                >
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-2 h-2 bg-blue-700 rounded-full"></div>
+                <span class="text-white font-medium"
+                  >Integração com APIs REST</span
+                >
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-2 h-2 bg-blue-700 rounded-full"></div>
+                <span class="text-white font-medium"
+                  >Arquitetura de Componentes</span
+                >
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-2 h-2 bg-blue-700 rounded-full"></div>
+                <span class="text-white font-medium">Testes Unitários</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 h-fit">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <div class="text-4xl font-bold text-blue-600 mb-2">1+</div>
+              <div class="text-sm text-gray-400">Ano de<br />Experiência</div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <div class="text-4xl font-bold text-blue-600 mb-2">3+</div>
+              <div class="text-sm text-gray-400">Projetos<br />Concluídos</div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <div class="text-4xl font-bold text-blue-600 mb-2">10+</div>
+              <div class="text-sm text-gray-400">
+                Tecnologias<br />Dominadas
+              </div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <div class="text-4xl font-bold text-blue-600 mb-2">B1</div>
+              <div class="text-sm text-gray-400">Inglês<br />Intermediário</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="skills"
+      class="relative py-16 lg:py-32 px-4 sm:px-8 lg:px-12 border-t border-white/5 overflow-hidden"
+    >
+      <div
+        class="absolute top-20 left-1/4 w-96 h-96 bg-blue-800/7 rounded-full blur-3xl pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-40 right-1/3 w-64 h-64 bg-blue-400/5 rounded-full blur-3xl pointer-events-none"
+      ></div>
+
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          Technical <span class="gradient-text">Skills</span>
+        </h2>
+
+        <div
+          class="h-1 w-20 bg-gradient-to-r from-blue-700 to-blue-600 mb-12"
+        ></div>
+
+        <div class="flex flex-wrap gap-3">
+          <span
+            v-for="skill in skills"
+            :key="skill.name"
+            class="px-5 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-700/30 rounded-full text-sm text-gray-300 hover:text-white transition-all cursor-default"
+          >
+            {{ skill.name }}
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="experience"
+      class="relative py-16 lg:py-32 px-4 sm:px-8 lg:px-12 border-t border-white/5 overflow-hidden"
+    >
+      <div
+        class="absolute top-32 right-16 w-72 h-72 bg-blue-500/6 rounded-full blur-3xl pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-24 left-1/4 w-80 h-80 bg-blue-800/7 rounded-full blur-3xl pointer-events-none"
+      ></div>
+
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          Work <span class="gradient-text">Experience</span>
+        </h2>
+
+        <div
+          class="h-1 w-20 bg-gradient-to-r from-blue-700 to-blue-600 mb-16"
+        ></div>
+
+        <div class="space-y-12">
+          <article
+            v-for="(exp, index) in experiences"
+            :key="index"
+            class="border-l-2 border-blue-700/20 pl-8 hover:border-blue-700 transition-colors"
+          >
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3"
+            >
+              <h3 class="text-2xl font-bold">{{ exp.role }}</h3>
+              <span class="text-sm text-gray-500">{{ exp.period }}</span>
+            </div>
+
+            <p class="text-lg text-blue-600 mb-4">{{ exp.company }}</p>
+
+            <p class="text-gray-400 leading-relaxed mb-4">
+              {{ exp.description }}
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="(tech, i) in exp.technologies"
+                :key="i"
+                class="px-3 py-1 bg-blue-700/10 border border-blue-700/20 rounded-lg text-xs text-blue-400"
+              >
+                {{ tech }}
+              </span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="projects"
+      class="relative py-16 lg:py-32 px-4 sm:px-8 lg:px-12 border-t border-white/5 overflow-hidden"
+    >
+      <div
+        class="absolute top-20 left-16 w-96 h-96 bg-blue-700/8 rounded-full blur-3xl pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-32 right-20 w-64 h-64 bg-blue-400/5 rounded-full blur-3xl pointer-events-none"
+      ></div>
+
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          Featured <span class="gradient-text">Projects</span>
+        </h2>
+
+        <div
+          class="h-1 w-20 bg-gradient-to-r from-blue-700 to-blue-600 mb-16"
+        ></div>
+
+        <div class="grid gap-8">
+          <article
+            v-for="(project, index) in projects"
+            :key="index"
+            class="group bg-white/5 border border-white/10 hover:border-blue-700/30 rounded-2xl p-8 card-hover transition-all"
+          >
+            <h3
+              class="text-2xl font-bold mb-3 group-hover:text-blue-600 transition-colors"
+            >
+              {{ project.title }}
+            </h3>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              {{ project.description }}
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span
+                v-for="(tech, i) in project.technologies"
+                :key="i"
+                class="px-3 py-1 bg-white/5 rounded-lg text-xs text-gray-400"
+              >
+                {{ tech }}
+              </span>
+            </div>
+
+            <a
+              :href="project.link"
+              class="inline-flex items-center text-blue-600 hover:text-blue-500 transition-colors"
+            >
+              <span class="text-sm font-medium">Ver Projeto</span>
+              <ArrowRight
+                class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+              />
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      class="relative py-16 lg:py-32 px-4 sm:px-8 lg:px-12 border-t border-white/5 overflow-hidden"
+    >
+      <div
+        class="absolute top-40 left-1/3 w-80 h-80 bg-blue-500/7 rounded-full blur-3xl pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-20 right-24 w-72 h-72 bg-blue-800/6 rounded-full blur-3xl pointer-events-none"
+      ></div>
+
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          Get In <span class="gradient-text">Touch</span>
+        </h2>
+
+        <div
+          class="h-1 w-20 bg-gradient-to-r from-blue-700 to-blue-600 mb-12"
+        ></div>
+
+        <p class="text-xl text-gray-400 mb-12 max-w-2xl">
+          Vamos trabalhar juntos! Entre em contato para discutir seu próximo
+          projeto ou oportunidade.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-8 mb-12">
+          <div class="flex items-start gap-4">
+            <div
+              class="w-12 h-12 bg-blue-700/10 border border-blue-700/20 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <Mail class="w-6 h-6 text-blue-600" />
+            </div>
+            <div>
+              <h3 class="font-semibold mb-1">Email</h3>
+              <a
+                href="mailto:brunovenanciodevnutri@gmail.com"
+                class="text-gray-400 hover:text-blue-600 transition-colors"
+              >
+                brunovenanciodevnutri@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div
+              class="w-12 h-12 bg-blue-700/10 border border-blue-700/20 rounded-xl flex items-center justify-center flex-shrink-0"
+            >
+              <Linkedin class="w-6 h-6 text-blue-600" />
+            </div>
+            <div>
+              <h3 class="font-semibold mb-1">LinkedIn</h3>
+              <a
+                href="https://linkedin.com/in/brunovenanciodevnutri"
+                target="_blank"
+                class="text-gray-400 hover:text-blue-600 transition-colors"
+              >
+                /in/brunovenanciodevnutri
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
