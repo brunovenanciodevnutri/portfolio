@@ -61,15 +61,15 @@ const experiences = ref([
 
       <div class="space-y-12">
         <article
-          v-for="(exp, index) in experiences"
-          :key="index"
+          v-for="exp in experiences"
+          :key="`${exp.company}-${exp.role}-${exp.period}`"
           class="border-l-2 border-blue-700/20 pl-8 hover:border-blue-700 transition-colors"
         >
           <div
             class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3"
           >
             <h3 class="text-2xl font-bold">{{ exp.role }}</h3>
-            <span class="text-sm text-gray-500">{{ exp.period }}</span>
+            <time class="text-sm text-gray-500">{{ exp.period }}</time>
           </div>
 
           <p class="text-lg text-blue-600 mb-4">{{ exp.company }}</p>
@@ -78,15 +78,15 @@ const experiences = ref([
             {{ exp.description }}
           </p>
 
-          <div class="flex flex-wrap gap-2">
-            <span
-              v-for="(tech, i) in exp.technologies"
-              :key="i"
+          <ul class="flex flex-wrap gap-2" aria-label="Tecnologias utilizadas">
+            <li
+              v-for="tech in exp.technologies"
+              :key="tech"
               class="px-3 py-1 bg-blue-700/10 border border-blue-700/20 rounded-lg text-xs text-blue-400"
             >
               {{ tech }}
-            </span>
-          </div>
+            </li>
+          </ul>
         </article>
       </div>
     </div>

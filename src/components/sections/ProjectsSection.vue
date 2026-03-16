@@ -56,8 +56,8 @@ const projects = ref([
 
       <div class="grid gap-8">
         <article
-          v-for="(project, index) in projects"
-          :key="index"
+          v-for="project in projects"
+          :key="project.title"
           class="group bg-white/5 border border-white/10 hover:border-blue-700/30 rounded-2xl p-8 card-hover transition-all"
         >
           <h3
@@ -69,15 +69,15 @@ const projects = ref([
             {{ project.description }}
           </p>
 
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span
-              v-for="(tech, i) in project.technologies"
-              :key="i"
+          <ul class="flex flex-wrap gap-2 mb-6" aria-label="Tecnologias do projeto">
+            <li
+              v-for="tech in project.technologies"
+              :key="tech"
               class="px-3 py-1 bg-white/5 rounded-lg text-xs text-gray-400"
             >
               {{ tech }}
-            </span>
-          </div>
+            </li>
+          </ul>
 
           <a
             :href="project.link"

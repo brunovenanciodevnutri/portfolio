@@ -67,18 +67,22 @@ const scrollToSection = (href: string) => {
                 </li>
               </ul>
 
-              <div class="flex gap-4 mt-6">
-                <a
+              <ul class="flex gap-4 mt-6" aria-label="Redes sociais">
+                <li
                   v-for="social in socialLinks"
                   :key="social.label"
-                  :href="social.href"
-                  target="_blank"
-                  :aria-label="social.label"
-                  class="text-gray-500 hover:text-white transition-colors"
                 >
-                  <component :is="social.icon" class="w-5 h-5" />
-                </a>
-              </div>
+                  <a
+                    :href="social.href"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    :aria-label="social.label"
+                    class="text-gray-500 hover:text-white transition-colors"
+                  >
+                    <component :is="social.icon" class="w-5 h-5" />
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

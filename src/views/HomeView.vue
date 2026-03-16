@@ -123,31 +123,39 @@ onMounted(() => {
               </VBtn>
             </div>
 
-            <div class="flex items-center gap-6">
-              <a
-                href="https://linkedin.com/in/brunovenanciodevnutri"
-                target="_blank"
-                class="text-gray-500 hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin class="w-6 h-6" />
-              </a>
-              <a
-                href="https://github.com/brunovenanciodevnutri"
-                target="_blank"
-                class="text-gray-500 hover:text-white transition-colors"
-                aria-label="GitHub"
-              >
-                <Github class="w-6 h-6" />
-              </a>
-              <a
-                href="mailto:brunovenanciodevnutri@gmail.com"
-                class="text-gray-500 hover:text-white transition-colors"
-                aria-label="Email"
-              >
-                <Mail class="w-6 h-6" />
-              </a>
-            </div>
+            <ul class="flex items-center gap-6" aria-label="Redes sociais e contato">
+              <li>
+                <a
+                  href="https://linkedin.com/in/brunovenanciodevnutri"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-gray-500 hover:text-white transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin class="w-6 h-6" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/brunovenanciodevnutri"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-gray-500 hover:text-white transition-colors"
+                  aria-label="GitHub"
+                >
+                  <Github class="w-6 h-6" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:brunovenanciodevnutri@gmail.com"
+                  class="text-gray-500 hover:text-white transition-colors"
+                  aria-label="Email"
+                >
+                  <Mail class="w-6 h-6" />
+                </a>
+              </li>
+            </ul>
           </div>
 
           <div class="flex justify-center -mt-10 md:mt-0 lg:justify-end order-1 lg:order-2">

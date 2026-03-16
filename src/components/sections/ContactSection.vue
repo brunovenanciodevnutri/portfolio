@@ -28,7 +28,7 @@ import { Mail, Linkedin } from "lucide-vue-next";
         projeto ou oportunidade.
       </p>
 
-      <div class="grid sm:grid-cols-2 gap-8 mb-12">
+      <address class="grid sm:grid-cols-2 gap-8 mb-12 not-italic">
         <div class="flex items-start gap-4">
           <div
             class="w-12 h-12 bg-blue-700/10 border border-blue-700/20 rounded-xl flex items-center justify-center flex-shrink-0"
@@ -57,13 +57,14 @@ import { Mail, Linkedin } from "lucide-vue-next";
             <a
               href="https://linkedin.com/in/brunovenanciodevnutri"
               target="_blank"
+              rel="noopener noreferrer"
               class="text-gray-400 hover:text-blue-600 transition-colors"
             >
               /in/brunovenanciodevnutri
             </a>
           </div>
         </div>
-      </div>
+      </address>
     </div>
   </section>
 </template>

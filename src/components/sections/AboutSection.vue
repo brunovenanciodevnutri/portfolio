@@ -34,52 +34,52 @@
             componentes.
           </p>
 
-          <div class="pt-6 space-y-4">
-            <div class="flex items-center gap-4">
+          <ul class="pt-6 space-y-4">
+            <li class="flex items-center gap-4">
               <div class="w-2 h-2 bg-blue-700 rounded-full"></div>
               <span class="text-white font-medium"
                 >Desenvolvimento Frontend</span
               >
-            </div>
-            <div class="flex items-center gap-4">
+            </li>
+            <li class="flex items-center gap-4">
               <div class="w-2 h-2 bg-blue-700 rounded-full"></div>
               <span class="text-white font-medium"
                 >Integração com APIs REST</span
               >
-            </div>
-            <div class="flex items-center gap-4">
+            </li>
+            <li class="flex items-center gap-4">
               <div class="w-2 h-2 bg-blue-700 rounded-full"></div>
               <span class="text-white font-medium"
                 >Arquitetura de Componentes</span
               >
-            </div>
-            <div class="flex items-center gap-4">
+            </li>
+            <li class="flex items-center gap-4">
               <div class="w-2 h-2 bg-blue-700 rounded-full"></div>
               <span class="text-white font-medium">Testes Unitários</span>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 h-fit">
+        <dl class="grid grid-cols-2 gap-4 h-fit">
           <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <div class="text-4xl font-bold text-blue-600 mb-2">1+</div>
-            <div class="text-sm text-gray-400">Ano de<br />Experiência</div>
+            <dd class="text-4xl font-bold text-blue-600 mb-2">1+</dd>
+            <dt class="text-sm text-gray-400">Ano de<br />Experiência</dt>
           </div>
           <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <div class="text-4xl font-bold text-blue-600 mb-2">3+</div>
-            <div class="text-sm text-gray-400">Projetos<br />Concluídos</div>
+            <dd class="text-4xl font-bold text-blue-600 mb-2">3+</dd>
+            <dt class="text-sm text-gray-400">Projetos<br />Concluídos</dt>
           </div>
           <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <div class="text-4xl font-bold text-blue-600 mb-2">10+</div>
-            <div class="text-sm text-gray-400">
+            <dd class="text-4xl font-bold text-blue-600 mb-2">10+</dd>
+            <dt class="text-sm text-gray-400">
               Tecnologias<br />Dominadas
-            </div>
+            </dt>
           </div>
           <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <div class="text-4xl font-bold text-blue-600 mb-2">B1</div>
-            <div class="text-sm text-gray-400">Inglês<br />Intermediário</div>
+            <dd class="text-4xl font-bold text-blue-600 mb-2">B1</dd>
+            <dt class="text-sm text-gray-400">Inglês<br />Intermediário</dt>
           </div>
-        </div>
+        </dl>
       </div>
     </div>
   </section>

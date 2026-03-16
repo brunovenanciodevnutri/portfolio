@@ -40,15 +40,15 @@ const skills = ref([
         class="h-1 w-20 bg-gradient-to-r from-blue-700 to-blue-600 mb-12"
       ></div>
 
-      <div class="flex flex-wrap gap-3">
-        <span
+      <ul class="flex flex-wrap gap-3" aria-label="Lista de habilidades técnicas">
+        <li
           v-for="skill in skills"
           :key="skill.name"
           class="px-5 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-700/30 rounded-full text-sm text-gray-300 hover:text-white transition-all cursor-default"
         >
           {{ skill.name }}
-        </span>
-      </div>
+        </li>
+      </ul>
     </div>
   </section>
 </template>

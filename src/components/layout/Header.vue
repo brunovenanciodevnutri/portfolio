@@ -37,17 +37,20 @@ const scrollToSection = (href: string) => {
           <span class="text-white"> Venâncio</span>
         </a>
 
-        <div class="hidden md:flex items-center gap-8">
-          <a
+        <ul class="hidden md:flex items-center gap-8">
+          <li
             v-for="item in navItems"
             :key="item.href"
-            :href="item.href"
-            @click.prevent="scrollToSection(item.href)"
-            class="text-sm text-gray-400 hover:text-white transition-colors"
           >
-            {{ item.label }}
-          </a>
-        </div>
+            <a
+              :href="item.href"
+              @click.prevent="scrollToSection(item.href)"
+              class="text-sm text-gray-400 hover:text-white transition-colors"
+            >
+              {{ item.label }}
+            </a>
+          </li>
+        </ul>
 
         <button
           @click="mobileMenuOpen = !mobileMenuOpen"
@@ -71,17 +74,20 @@ const scrollToSection = (href: string) => {
           v-if="mobileMenuOpen"
           class="md:hidden absolute top-20 left-0 right-0 bg-black/95 backdrop-blur-lg border-b border-white/5 py-4 px-4"
         >
-          <div class="flex flex-col gap-2">
-            <a
+          <ul class="flex flex-col gap-2">
+            <li
               v-for="item in navItems"
               :key="item.href"
-              :href="item.href"
-              @click.prevent="scrollToSection(item.href)"
-              class="px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all"
             >
-              {{ item.label }}
-            </a>
-          </div>
+              <a
+                :href="item.href"
+                @click.prevent="scrollToSection(item.href)"
+                class="block px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all"
+              >
+                {{ item.label }}
+              </a>
+            </li>
+          </ul>
         </div>
       </Transition>
     </nav>
