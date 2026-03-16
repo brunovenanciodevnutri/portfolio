@@ -179,7 +179,7 @@ Este projeto está sob a licença MIT. Sinta-se livre para usar como base para s
 
 ## 💬 Contato
 
-- **Email**: contato@brunovenancio.dev
+- **Email**: brunovenanciodevnutri@gmail.com
 - **LinkedIn**: [linkedin.com/in/brunovenanciodevnutri](https://linkedin.com/in//brunovenanciodevnutri)
 - **GitHub**: [github.com/brunovenanciodevnutri](https://github.com//brunovenanciodevnutri)
 
