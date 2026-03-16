@@ -70,7 +70,7 @@ onMounted(() => {
         <div class="grid lg:grid-cols-2 gap-12 items-start">
           <div class="order-2 lg:order-1">
             <h1
-              class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight max-w-full"
+              class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight max-w-full min-h-[7rem] sm:min-h-[8.5rem] lg:min-h-[11.5rem]"
             >
               <span v-if="displayedText.includes('\n')">
                 {{ displayedText.split('\n')[0] }}<br />
