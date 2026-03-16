@@ -21,9 +21,9 @@ const scrollToSection = (sectionId: string) => {
   }
 };
 
-onMounted(() => {
+const startTypingAnimation = () => {
   let currentIndex = 0;
-  
+
   const typeCharacter = () => {
     if (currentIndex < fullText.length) {
       displayedText.value += fullText[currentIndex];
@@ -35,8 +35,12 @@ onMounted(() => {
       }, 500);
     }
   };
-  
+
   typeCharacter();
+};
+
+onMounted(() => {
+  startTypingAnimation();
 });
 </script>
 
