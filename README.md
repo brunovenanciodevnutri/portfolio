@@ -180,8 +180,8 @@ Este projeto está sob a licença MIT. Sinta-se livre para usar como base para s
 ## 💬 Contato
 
 - **Email**: contato@brunovenancio.dev
-- **LinkedIn**: [linkedin.com/in/bruno-venancio](https://linkedin.com)
-- **GitHub**: [github.com/bruno-venancio](https://github.com)
+- **LinkedIn**: [linkedin.com/in/brunovenanciodevnutri](https://linkedin.com/in//brunovenanciodevnutri)
+- **GitHub**: [github.com/brunovenanciodevnutri](https://github.com//brunovenanciodevnutri)
 
 ---
 
